@@ -16,14 +16,12 @@ var generate = function(){
 	var q = bigInt($('#prime2').val());
 	var n = p.multiply(q);
 	var phi = p.minus(1).multiply(q.minus(1));
-	for(var i = phi.minus(2).divide(2);i.greater(0);i = i.minus(1)){
-		
+	for(var i = phi.divide(2);i.greater(0);i = i.minus(1)){
 		var euclid = xgcd(phi,i);
 		if(euclid.gcd.equals(1) == true){
 			publicKey = i;
 			privateKey = (euclid.x.mod(n).add(n)).mod(n);
 			$('#result').html('Public_Key='+publicKey.toString()+'<br/>Modulo='+n.toString()+'<br/>Private_Key='+privateKey.toString()+'  (don\'t tell anyone your private key!)');
-			console.log(publicKey.toString());
 			return;
 		}
 	}
