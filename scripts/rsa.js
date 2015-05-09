@@ -1,11 +1,9 @@
 var p = bigInt("362736035870515331128527330659");
 var q = bigInt("416064700201658306196320137931");
-var d = bigInt("100614440011202623120938087259140306535017502307035518438627");
+var d = bigInt("27346295779494331251186703663882691576191428034752214362407");
 // p,q,d are secret
-var e = 3;
+var e = bigInt("5754853343");
 var n = p.multiply(q);
-
-console.log(n.toString());
 
 var encode = function(){
 	var a = bigInt($('#text').val());
